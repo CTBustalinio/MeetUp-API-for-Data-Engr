@@ -1,0 +1,26 @@
+Robustness and fault tolerance
+
+    -The system shall ingnore any inconsistencies in the data feed.
+
+Low latency reads and updates
+    -MeetUp stream is continues, but there were instances of EC2 failure, hence a cesation in loading in S3. This could be improved using higher-tier EC2 machines, or a back-up.
+
+Scalability 
+    -The S3/ Spark is capable of handling larger datasets. The limitation is in the front-end. Tableau Public only accommodates 15M rows. In enterprise roll-out, Tableau Desktop is capable of connecting to Amazon EMR and Spark SQL
+
+Generalization
+
+    -The 3NF DataFrames and csv files can be used in different applications
+
+Extensibility
+    -The 3NF tables can be expanded in case more data fields are provided by the MeetUp stream
+
+Ad hoc queries
+    -Tableau has data download feature, which can be used to extract data from the system.
+
+Minimal maintenance
+    -The current system is static and would need frequent refresh since connected to csv files. This can be solved by connecting Tableau directly to Amazon EMR
+
+
+Debuggability
+    -The code is easy to understand and has comments, hence easy to debug. There's also a file on Unix codes used for reference.

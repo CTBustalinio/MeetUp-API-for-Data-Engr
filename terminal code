@@ -1,0 +1,25 @@
+log in to emr/ec2:
+  ssh -i ~/.ssh/DSCI6007_ctb.pem hadoop@ec2-54-236-46-201.compute-1.amazonaws.com
+
+copy files:
+  scp -i ~/.ssh/DSCI6007_ctb.pem hadoop@ec2-54-197-73-86.compute-1.amazonaws.com:~/lab-Camille.ipynb ~/Desktop/
+
+get stream from meetup:
+  sudo nohup python meetup_firehose.py &
+
+aws configure
+  access key in accesKeys.csv
+  region = us-east-1
+
+run jupyter notebook
+  sudo pip install jupyter
+  which jupyter # returns: /usr/local/bin/jupyter
+  export PYSPARK_DRIVER_PYTHON=/usr/local/bin/jupyter
+  export PYSPARK_DRIVER_PYTHON_OPTS="notebook --NotebookApp.open_browser=False --NotebookApp.ip='*' --NotebookApp.port=8888"
+  source ~/.bashrc
+  pyspark
+
+install pandas
+  sudo yum groupinstall "Development Tools"
+  sudo yum install python-devel libpng-devel freetype-devel
+  sudo pip install pandas
